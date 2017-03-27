@@ -1,5 +1,5 @@
 # postgrest-dcos
-A Docker image for running https://github.com/begriffs/postgrest/ on DC/OS
+A Docker image for running https://github.com/begriffs/postgrest on DC/OS
 
 ## Configuration
 The `postgrest` instance can be configured using environment variables:
@@ -67,4 +67,8 @@ You can run `postgrest` by using the following Marathon app definition:
 }
 ```
 
-The `postgrest` service will then be available at `postgrest.marathon.l4lb.thisdcos.directory:80` inside the DC/OS cluster. If you want to expose it via `marathon-lb`, make sure to add the appropriate labels.
+The `postgrest` service will then be available at `postgrest.marathon.l4lb.thisdcos.directory:80` inside the DC/OS cluster. The above example will expose the service via `marathon-lb`, make sure to change the `HAPROXY_0_VHOST` to your external loadbalancer. 
+
+## Authentication
+
+Make sure you configure your Postgres database as described in the [postgrest docs](https://postgrest.com/en/v0.4/auth.html). Also make sure to configure the correct `POSTGREST_ANON_ROLE` role. **Otherwise the public will have read/write access!** 
