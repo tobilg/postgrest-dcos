@@ -6,26 +6,21 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "tobilg/postgrest-dcos:0.1.0",
-      "network": "HOST"
+      "image": "tobilg/postgrest-dcos:latest",
+      "network": "HOST",
+      "forcePullImage": true
     }
   },
-  "healthChecks": [
-    {
-      "protocol": "HTTP",
-      "portIndex": 0,
-      "path": "/",
-      "gracePeriodSeconds": 5,
-      "intervalSeconds": 20,
-      "maxConsecutiveFailures": 3
-    }
-  ],
   "env": {
-    "POSTGRES_USER": "myuser",
-    "POSTGRES_PASSWORD": "mypassword",
-    "POSTGRES_DATABASE": "mydatabase",
-    "POSTGRES_SCHEMA": "myschema",
-    "POSTGREST_JWT_SECRET": "mYseCR3t"
+    "POSTGRES_USER": "marathon",
+    "POSTGRES_PASSWORD": "test123",
+    "POSTGRES_DATABASE": "marathon-build",
+    "POSTGRES_SCHEMA": "postgrest-test",
+    "POSTGREST_ANON_ROLE": "marathon"
+  },
+  "labels": {
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_VHOST": "YOUR_EXTERNAL_LB_HOSTNAME"
   },
   "portDefinitions": [
     {
@@ -37,5 +32,15 @@
       }
     }
   ],
-  "requirePorts": false
+  "requirePorts": false,
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "path": "/",
+      "gracePeriodSeconds": 5,
+      "intervalSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ]
 }
