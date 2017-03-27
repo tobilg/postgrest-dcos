@@ -20,7 +20,9 @@
   },
   "labels": {
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_VHOST": "YOUR_EXTERNAL_LB_HOSTNAME"
+    "HAPROXY_0_VHOST": "YOUR_EXTERNAL_LB_HOSTNAME",
+    "HAPROXY_0_PATH": "/postgrest",
+    "HAPROXY_0_HTTP_BACKEND_PROXYPASS_PATH": "/postgrest"
   },
   "portDefinitions": [
     {
@@ -37,7 +39,7 @@
     {
       "protocol": "HTTP",
       "portIndex": 0,
-      "path": "/",
+      "path": "/postgrest",
       "gracePeriodSeconds": 5,
       "intervalSeconds": 20,
       "maxConsecutiveFailures": 3

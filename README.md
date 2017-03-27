@@ -41,7 +41,9 @@ You can run `postgrest` by using the following Marathon app definition:
   },
   "labels": {
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_VHOST": "YOUR_EXTERNAL_LB_HOSTNAME"
+    "HAPROXY_0_VHOST": "YOUR_EXTERNAL_LB_HOSTNAME",
+    "HAPROXY_0_PATH": "/postgrest",
+    "HAPROXY_0_HTTP_BACKEND_PROXYPASS_PATH": "/postgrest"
   },
   "portDefinitions": [
     {
@@ -58,7 +60,7 @@ You can run `postgrest` by using the following Marathon app definition:
     {
       "protocol": "HTTP",
       "portIndex": 0,
-      "path": "/",
+      "path": "/postgrest",
       "gracePeriodSeconds": 5,
       "intervalSeconds": 20,
       "maxConsecutiveFailures": 3
