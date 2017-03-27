@@ -9,7 +9,7 @@ The `postgrest` instance can be configured using environment variables:
 * `POSTGRES_SCHEMA`: The name of the schema to use. (**mandatory**)
 * `POSTGRES_USER`: The name of the Postgres user. (**mandatory**)
 * `POSTGRES_PASSWORD`: The Postgres user's password. (**mandatory**)
-* `POSTGRES_TIMEOUT_SECONDS`: The timeout for which `dockerize` checks the availability of the PostGres service at the `POSTGRES_URL`. Default is `120 seconds.
+* `POSTGRES_TIMEOUT_SECONDS`: The timeout for which `dockerize` checks the availability of the Postgres service at the `POSTGRES_URL`. Default is `120 seconds.
 * `POSTGREST_JWT_SECRET`: The JWT secret used to connect to `postgrest`. By default, a random 32 character string will be generated if nothing is provided. 
 * `POSTGREST_DB_MAX_ROWS`: The number of rows that a query can return at maximum. Default is `1000`.
 * `POSTGREST_DB_POOL_SIZE`: The number of connections which are used for connection pooling. Default is `5`.
