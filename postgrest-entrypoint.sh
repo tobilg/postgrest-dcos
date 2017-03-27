@@ -31,11 +31,13 @@ fi
 # Check if POSTGRES_URL has been set, otherwise set default
 if [ -z ${POSTGRES_URL+x} ]; then
     export POSTGRES_URL=postgresql.marathon.l4lb.thisdcos.directory:5432
+    echo "Using default POSTGRES_URL: postgresql.marathon.l4lb.thisdcos.directory:5432"
 fi
 
 # Check if POSTGRES_TIMEOUT_SECONDS has been set, otherwise set default
 if [ -z ${POSTGRES_TIMEOUT_SECONDS+x} ]; then
     export POSTGRES_TIMEOUT_SECONDS=120
+    echo "Using default POSTGRES_TIMEOUT_SECONDS: 120"
 fi
 
 # Check if POSTGREST_JWT_SECRET has been set, otherwise set default
@@ -47,16 +49,19 @@ fi
 # Check if POSTGREST_DB_MAX_ROWS has been set, otherwise set default
 if [ -z ${POSTGREST_DB_MAX_ROWS+x} ]; then
     export POSTGREST_DB_MAX_ROWS=1000
+    echo "Using default POSTGREST_DB_MAX_ROWS: 1000"
 fi
 
 # Check if POSTGREST_DB_POOL_SIZE has been set, otherwise set default
 if [ -z ${POSTGREST_DB_POOL_SIZE+x} ]; then
     export POSTGREST_DB_POOL_SIZE=5
+    echo "Using default POSTGREST_DB_POOL_SIZE: 5"
 fi
 
 # Check if POSTGREST_ANON_ROLE has been set, otherwise set default
 if [ -z ${POSTGREST_ANON_ROLE+x} ]; then
     export POSTGREST_ANON_ROLE="app_user"
+    echo "Using default POSTGREST_ANON_ROLE: app_user"
 fi
 
 # Show environment
