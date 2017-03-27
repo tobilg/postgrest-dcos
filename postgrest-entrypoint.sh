@@ -54,6 +54,11 @@ if [ -z ${POSTGREST_DB_POOL_SIZE+x} ]; then
     export POSTGREST_DB_POOL_SIZE=5
 fi
 
+# Check if POSTGREST_ANON_ROLE has been set, otherwise set default
+if [ -z ${POSTGREST_ANON_ROLE+x} ]; then
+    export POSTGREST_ANON_ROLE="app_user"
+fi
+
 # Show environment
 env
 

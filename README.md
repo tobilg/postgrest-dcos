@@ -13,6 +13,7 @@ The `postgrest` instance can be configured using environment variables:
 * `POSTGREST_JWT_SECRET`: The JWT secret used to connect to `postgrest`. By default, a random 32 character string will be generated if nothing is provided. 
 * `POSTGREST_DB_MAX_ROWS`: The number of rows that a query can return at maximum. Default is `1000`.
 * `POSTGREST_DB_POOL_SIZE`: The number of connections which are used for connection pooling. Default is `5`.
+* `POSTGREST_ANON_ROLE`: The default anon database role. Default is `app_user`. 
 
 ## Running
 You can run `postgrest` by using the following Marathon app definition:
@@ -60,3 +61,5 @@ You can run `postgrest` by using the following Marathon app definition:
   "requirePorts": false
 }
 ```
+
+The `postgrest` service will then be available at `postgrest.marathon.l4lb.thisdcos.directory:80` inside the DC/OS cluster. If you want to expose it via `marathon-lb`, make sure to add the appropriate labels.
