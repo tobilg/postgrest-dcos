@@ -63,4 +63,4 @@ fi
 env
 
 # Render config.conf and start postgrest
-dockerize -delims "<%:%>" -template $POSTGREST_PATH/config.conf.template:$POSTGREST_PATH/config.conf -wait tcp://$POSTGRES_URL -timeout ${POSTGRES_TIMEOUT_SECONDS}s postgrest $POSTGREST_PATH/config.conf
+dockerize -delims "<%:%>" -template $POSTGREST_PATH/config.conf.template:$POSTGREST_PATH/config.conf -wait tcp://$POSTGRES_URL -timeout ${POSTGRES_TIMEOUT_SECONDS}s cat $POSTGREST_PATH/config.conf && postgrest $POSTGREST_PATH/config.conf
