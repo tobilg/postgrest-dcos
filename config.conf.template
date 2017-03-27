@@ -1,8 +1,8 @@
 db-uri = "postgres://<% .Env.POSTGRES_USER %>:<% .Env.POSTGRES_PASSWORD %>@<% .Env.POSTGRES_URL %>/<% .Env.POSTGRES_DATABASE %>"
 db-schema = "<% .Env.POSTGRES_SCHEMA %>"
-db-anon-role = ""<% .Env.POSTGREST_ANON_ROLE %>"
+db-anon-role = "<% .Env.POSTGREST_ANON_ROLE %>"
 db-pool	= <% .Env.POSTGREST_DB_POOL_SIZE %>
-server-host	= ""<% .Env.HOST %>"
+server-host	= "<% .Env.HOST %>"
 server-port	= <% .Env.PORT0 %>
 jwt-secret = "<% .Env.POSTGREST_JWT_SECRET %>"
 max-rows = <% .Env.POSTGREST_DB_MAX_ROWS %>
